@@ -2,11 +2,11 @@ package com.nathandunn.homework_2;
 
 import java.util.Date;
 
-public abstract class View {
+public abstract class TimeView {
 
     TimeController timeController;
 
-    View(TimeController newTimeController){
+    TimeView(TimeController newTimeController){
         this.timeController = newTimeController;
     }
 

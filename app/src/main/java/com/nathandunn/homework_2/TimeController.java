@@ -6,8 +6,8 @@ import java.util.List;
 
 public class TimeController {
 
-    ArrayList<View> timeViews;
-    TimeModel timeModel;
+    private ArrayList<TimeView> timeViews;
+    private TimeModel timeModel;
 
     TimeController(){}
 
@@ -16,13 +16,13 @@ public class TimeController {
         timeViews = new ArrayList<>();
     }
 
-    public void registerViews(View v){
+    public void registerViews(TimeView v){
         this.timeViews.add(v);
     }
 
     public void updateView(){
 
-        for(View v: this.timeViews){
+        for(TimeView v: this.timeViews){
             v.update(timeModel.getTime());
         }
     }

@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class DigitalClockView extends View {
+public class DigitalClockView extends TimeView {
 
     String stringTime;
     SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd MMM YYYY");

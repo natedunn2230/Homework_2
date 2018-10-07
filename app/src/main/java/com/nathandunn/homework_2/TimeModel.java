@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class TimeModel {
     private Calendar date;
-    TimeController timeController;
+    private TimeController timeController;
 
     TimeModel(TimeController newTimeController) {
         this.timeController = newTimeController;
