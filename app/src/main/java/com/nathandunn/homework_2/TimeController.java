@@ -1,28 +1,28 @@
 package com.nathandunn.homework_2;
 
+import com.nathandunn.homework_2.views.ClockView;
+
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class TimeController {
 
-    private ArrayList<TimeView> timeViews;
+    private ArrayList<ClockView> ClockViews;
     private TimeModel timeModel;
 
     TimeController(){}
 
     public void registerModel(TimeModel model){
         this.timeModel = model;
-        timeViews = new ArrayList<>();
+        ClockViews = new ArrayList<>();
     }
 
-    public void registerViews(TimeView v){
-        this.timeViews.add(v);
+    public void registerViews(ClockView v){
+        this.ClockViews.add(v);
     }
 
     public void updateView(){
 
-        for(TimeView v: this.timeViews){
+        for(ClockView v: this.ClockViews){
             v.update(timeModel.getTime());
         }
     }
