@@ -10,15 +10,13 @@
         android:id="@+id/clock_list_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignBottom="@id/split_view"
-        android:background="@color/colorAccent">
+        android:layout_alignBottom="@id/split_view">
         <LinearLayout
             android:gravity="bottom"
             android:orientation="vertical"
             android:id="@+id/clock_list_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
         </LinearLayout>
     </ScrollView>
 
@@ -42,15 +40,17 @@
        android:layout_height="50dp"
        android:layout_marginTop="25dp"
        android:text="@string/add_digital_clock_button"
-       android:textSize="12sp" />
+       android:textSize="12sp"
+       android:background="@color/colorAccent"/>
 
    <Button
        android:id="@+id/add_analog_clock"
        android:layout_width="100dp"
        android:layout_height="50dp"
        android:layout_marginTop="25dp"
-       android:text="@string/add_digital_clock_button"
-       android:textSize="12sp" />
+       android:text="@string/add_analog_clock_button"
+       android:textSize="12sp"
+       android:background="@color/colorPrimary"/>
 
    </GridLayout>
 

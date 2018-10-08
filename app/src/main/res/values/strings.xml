@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Homework_2</string>
     <string name="add_digital_clock_button">Add Digital</string>
+    <string name="add_analog_clock_button">Add Analog</string>
 </resources>
