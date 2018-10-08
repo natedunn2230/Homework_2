@@ -9,11 +9,12 @@ public class TimeController {
     private ArrayList<ClockView> ClockViews;
     private TimeModel timeModel;
 
-    TimeController(){}
+    TimeController(){
+        ClockViews = new ArrayList<>();
+    }
 
     public void registerModel(TimeModel model){
         this.timeModel = model;
-        ClockViews = new ArrayList<>();
     }
 
     public void registerViews(ClockView v){

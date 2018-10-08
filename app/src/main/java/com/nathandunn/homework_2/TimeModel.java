@@ -1,16 +1,20 @@
 package com.nathandunn.homework_2;
 
 
+import android.app.Activity;
+
 import java.util.Calendar;
 import java.util.Date;
 
 public class TimeModel {
+    private Activity activity;
     private Calendar date;
     private TimeController timeController;
 
-    TimeModel(TimeController newTimeController) {
+    TimeModel(TimeController newTimeController, Activity activity) {
         this.timeController = newTimeController;
         date = Calendar.getInstance();
+        this.activity = activity;
     }
 
     public void setYear(int newYear) {
@@ -49,6 +53,11 @@ public class TimeModel {
 
     public void tick(){
         this.date.set(Calendar.SECOND, this.date.get(Calendar.SECOND) + 1);
-        this.timeController.updateView();
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                timeController.updateView();
+            }
+        });
     }
 }

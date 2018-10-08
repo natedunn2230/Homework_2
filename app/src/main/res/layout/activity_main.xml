@@ -6,12 +6,22 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ListView
-        android:id="@+id/clock_list_view"
+    <ScrollView
+        android:id="@+id/clock_list_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignBottom="@id/split_view">
-    </ListView>
+        android:layout_alignBottom="@id/split_view"
+        android:background="@color/colorAccent">
+        <LinearLayout
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:id="@+id/clock_list_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+    </ScrollView>
+
 
     <View
         android:id="@+id/split_view"
@@ -23,7 +33,7 @@
    <GridLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:layout_below="@id/clock_list_view"
+       android:layout_below="@+id/clock_list_scroll"
        android:layout_alignTop="@id/split_view">
 
    <Button
@@ -33,6 +43,15 @@
        android:layout_marginTop="25dp"
        android:text="@string/add_digital_clock_button"
        android:textSize="12sp" />
+
+   <Button
+       android:id="@+id/add_analog_clock"
+       android:layout_width="100dp"
+       android:layout_height="50dp"
+       android:layout_marginTop="25dp"
+       android:text="@string/add_digital_clock_button"
+       android:textSize="12sp" />
+
    </GridLayout>
 
 

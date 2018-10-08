@@ -1,9 +1,13 @@
 package com.nathandunn.homework_2.views;
 
 import android.content.Context;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.nathandunn.homework_2.R;
 import com.nathandunn.homework_2.TimeController;
 
 import java.text.SimpleDateFormat;
@@ -17,19 +21,20 @@ public class DigitalClockView extends ClockView {
     private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd MMM YYYY");
 
 
-    public DigitalClockView(Context context,  TimeController newTimeController){
+    public DigitalClockView(Context context, TimeController newTimeController){
         super(context, newTimeController);
+        LayoutInflater.from(context).inflate(R.layout.digital_clock, this, true);
         init();
     }
 
     public void update(Date time){
         stringTime = dateFormat.format(time);
         digitalClockTextView.setText(stringTime);
-    }
+}
 
     private void init(){
-        digitalClockTextView = new TextView(super.getContext());
-        digitalClockTextView.setText("Createddddd");
+        digitalClockTextView = findViewById(R.id.digital_clock_text_view);
+        digitalClockTextView.setText("...");
     }
 
 }
