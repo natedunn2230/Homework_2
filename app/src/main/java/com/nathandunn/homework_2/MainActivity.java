@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 
+import com.nathandunn.homework_2.commands.UpdateTimeCommand;
 import com.nathandunn.homework_2.views.AnalogClockView;
 import com.nathandunn.homework_2.views.ClockView;
 import com.nathandunn.homework_2.views.DigitalClockView;
@@ -28,12 +29,13 @@ public class MainActivity extends AppCompatActivity {
     private TimeModel timeModel;
     private TimeController timeController;
     private TimeThread timeThread;
+    private CommandQ commands;
+
     private NumberPicker hNumberPicker, mNumberPicker, sNumberPicker, dayNumberPicker, monthNumberPicker, yearNumberPicker;
     private LinearLayout clockListLayout;
     private Button addDigitalButton, addAnalogButton, updateTimeButton, undoButton, redoButton;
 
-    public MainActivity() {
-    }
+    public MainActivity() { }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +77,25 @@ public class MainActivity extends AppCompatActivity {
                 int newMinute = mNumberPicker.getValue();
                 int newSecond = sNumberPicker.getValue();
 
-                timeController.updateModel(newYear, newMonth, newDay, newHour, newMinute, newSecond);
+                int [] newTime = {newYear, newMonth, newDay, newHour, newMinute, newSecond};
+
+                commands.executeCommand(new UpdateTimeCommand(timeController, timeModel.getTime(), newTime));
+
+            }
+        });
+
+        undoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                commands.undoCommand();
+
+            }
+        });
+
+        redoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                commands.redoCommand();
             }
         });
 
@@ -89,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
         timeController = new TimeController();
         timeModel = new TimeModel(timeController, this);
         timeController.registerModel(timeModel);
+
+         commands = CommandQ.getInstance();
 
         //Thread that takes care of ticking time
         timeThread = new TimeThread(timeModel);

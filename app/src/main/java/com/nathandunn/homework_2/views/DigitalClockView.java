@@ -27,6 +27,7 @@ public class DigitalClockView extends ClockView {
         init();
     }
 
+    @Override
     public void update(Date time){
         stringTime = dateFormat.format(time);
         digitalClockTextView.setText(stringTime);

@@ -26,6 +26,7 @@ public class AnalogClockView extends ClockView {
         init();
     }
 
+    @Override
     public void update(Date time){
         stringTime = dateFormat.format(time);
         analogClockTextView.setText(stringTime);
