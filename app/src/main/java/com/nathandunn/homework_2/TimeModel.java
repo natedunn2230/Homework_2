@@ -13,7 +13,7 @@ public class TimeModel {
 
     TimeModel(TimeController newTimeController, Activity activity) {
         this.timeController = newTimeController;
-        date = Calendar.getInstance();
+        this.date = Calendar.getInstance();
         this.activity = activity;
     }
 

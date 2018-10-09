@@ -31,9 +31,9 @@ public class TimeController {
     public void updateModel(int year, int month, int day, int hour, int minute, int second){
         this.timeModel.setYear(year);
         this.timeModel.setMonth(month);
-        this.timeModel.setMonth(day);
-        this.timeModel.setMonth(hour);
-        this.timeModel.setMonth(minute);
-        this.timeModel.setMonth(second);
+        this.timeModel.setDay(day);
+        this.timeModel.setHour(hour);
+        this.timeModel.setMinute(minute);
+        this.timeModel.setSecond(second);
     }
 }

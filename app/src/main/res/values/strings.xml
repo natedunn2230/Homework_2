@@ -2,4 +2,6 @@
     <string name="app_name">Homework_2</string>
     <string name="add_digital_clock_button">Add Digital</string>
     <string name="add_analog_clock_button">Add Analog</string>
+    <string name="edit_time_title">Edit Time</string>
+    <string name="update_time_button">Update Time</string>
 </resources>

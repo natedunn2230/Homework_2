@@ -18,7 +18,7 @@ public class DigitalClockView extends ClockView {
 
     private TextView digitalClockTextView;
     private String stringTime;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd MMM YYYY");
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss dd MMM YYYY");
 
 
     public DigitalClockView(Context context, TimeController newTimeController){

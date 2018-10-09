@@ -10,7 +10,7 @@
         android:id="@+id/clock_list_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignBottom="@id/split_view">
+        android:layout_alignBottom="@id/split_view_horizontal">
         <LinearLayout
             android:gravity="bottom"
             android:orientation="vertical"
@@ -20,39 +20,186 @@
         </LinearLayout>
     </ScrollView>
 
-
     <View
-        android:id="@+id/split_view"
+        android:id="@+id/split_view_horizontal"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="3dp"
         android:layout_centerVertical="true"
         android:background="@color/colorPrimaryDark"/>
 
-   <GridLayout
+    <RelativeLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:layout_below="@+id/clock_list_scroll"
-       android:layout_alignTop="@id/split_view">
+       android:layout_alignTop="@id/split_view_horizontal">
 
-   <Button
-       android:id="@+id/add_digital_clock"
-       android:layout_width="100dp"
-       android:layout_height="50dp"
-       android:layout_marginTop="25dp"
-       android:text="@string/add_digital_clock_button"
-       android:textSize="12sp"
-       android:background="@color/colorAccent"/>
+        <LinearLayout
+            android:id="@+id/split_view_vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"/>
 
-   <Button
-       android:id="@+id/add_analog_clock"
-       android:layout_width="100dp"
-       android:layout_height="50dp"
-       android:layout_marginTop="25dp"
-       android:text="@string/add_analog_clock_button"
-       android:textSize="12sp"
-       android:background="@color/colorPrimary"/>
+        <Button
+            android:id="@+id/add_digital_clock"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@id/split_view_vertical"
+            android:layout_alignStart="@id/split_view_vertical"
+            android:layout_margin="20dp"
+            android:text="@string/add_digital_clock_button"
+            android:textSize="12sp"
+            android:background="@color/colorAccent"/>
 
-   </GridLayout>
+        <Button
+            android:id="@+id/add_analog_clock"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/split_view_vertical"
+            android:layout_alignEnd="@id/split_view_vertical"
+            android:layout_margin="20dp"
+            android:text="@string/add_analog_clock_button"
+            android:textSize="12sp"
+            android:background="@color/colorPrimary" />
+
+        <View
+            android:id="@+id/edit_time_horizontal_upper"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/add_analog_clock"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/edit_time_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_time_horizontal_upper"
+            android:text="@string/edit_time_title"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"/>
+
+        <NumberPicker
+            android:id="@+id/hour_number_picker"
+            android:background="@color/colorPrimary"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/edit_time_title"
+            android:layout_margin="5dp"
+            android:layout_toLeftOf="@id/minute_number_picker"
+            android:layout_toStartOf="@id/minute_number_picker"
+            android:descendantFocusability="blocksDescendants"
+            />
+
+        <NumberPicker
+            android:id="@+id/minute_number_picker"
+            android:background="@color/colorPrimary"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/edit_time_title"
+            android:layout_margin="5dp"
+            android:layout_toLeftOf="@id/second_number_picker"
+            android:layout_toStartOf="@id/second_number_picker"
+            android:descendantFocusability="blocksDescendants"
+            />
+
+        <NumberPicker
+            android:id="@+id/second_number_picker"
+            android:background="@color/colorPrimary"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/edit_time_title"
+            android:layout_margin="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@id/split_view_vertical"
+            android:layout_toStartOf="@id/split_view_vertical"
+            android:descendantFocusability="blocksDescendants"
+            />
+
+        <NumberPicker
+            android:id="@+id/month_number_picker"
+            android:background="@color/colorAccent"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/edit_time_title"
+            android:layout_margin="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/split_view_vertical"
+            android:layout_toEndOf="@id/split_view_vertical"
+            android:descendantFocusability="blocksDescendants"
+            />
+
+        <NumberPicker
+            android:id="@+id/day_number_picker"
+            android:background="@color/colorAccent"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/edit_time_title"
+            android:layout_margin="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/month_number_picker"
+            android:layout_toEndOf="@id/month_number_picker"
+            android:descendantFocusability="blocksDescendants"
+            />
+
+        <NumberPicker
+            android:id="@+id/year_number_picker"
+            android:background="@color/colorAccent"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/edit_time_title"
+            android:layout_margin="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/day_number_picker"
+            android:layout_toEndOf="@id/day_number_picker"
+            android:descendantFocusability="blocksDescendants"
+            />
+
+        <Button
+            android:id="@+id/update_time_button"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/minute_number_picker"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:text="Update Time"
+            android:textSize="12sp"
+            android:background="@color/colorPrimary" />
+
+
+        <View
+            android:id="@+id/edit_time_horizontal_lower"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/update_time_button"
+            android:layout_centerVertical="true" />
+
+        <Button
+            android:id="@+id/undo_button"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/edit_time_horizontal_lower"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_toLeftOf="@id/split_view_vertical"
+            android:layout_toStartOf="@id/split_view_vertical"
+            android:text="Undo"
+            android:textSize="12sp"
+            android:background="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/redo_button"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/edit_time_horizontal_lower"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_toRightOf="@id/split_view_vertical"
+            android:layout_toEndOf="@id/split_view_vertical"
+            android:text="Redo"
+            android:textSize="12sp"
+            android:background="@color/colorPrimary" />
+
+   </RelativeLayout>
 
 
 </RelativeLayout>
