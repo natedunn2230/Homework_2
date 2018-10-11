@@ -8,11 +8,19 @@
 
 ## Overview
 
-This assignment gave me the opportunity to implement design patterns discussed in class. These include Model View Controller (MVC), Command and Singleton design pattens. This application allows the user to instantiate multiple views of clocks (analog or digital) and update their time. The user also has the choice to undo or redo any changes they made.
+This assignment gave me the opportunity to implement design patterns discussed in class. These include Model View Controller (MVC), Command and Singleton design patterns. This application allows the user to instantiate multiple views of clocks (analog or digital) and update their time. The user also has the choice to undo or redo any changes they made.
 
 ## Screenshot
 
 ![screenshot](./resources/screenshot_homework2.png)
+
+ ## Instructions
+
+ * To add an analog clock to the screen, tap ADD ANALOG.
+ * To add a digital clock, tap ADD DIGITAL.
+ * To edit the time of the clocks, use the scroll wheels to set a desired time and click UPDATE TIME.
+ * If unwanted changes to the time were made, tap UNDO to revert back to a previous time. Similarly, click  REDO to return back.
+ * Hold the top half of the screen to clear the clocks and revert back to current time.
 
 ## Deployment Instructions
 
