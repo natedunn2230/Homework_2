@@ -43,12 +43,9 @@ public class CommandQ {
         }
     }
 
-    public int getUndoStackSize(){
-        return undoStack.size();
-    }
-
-    public int getRedoStackSize(){
-        return redoStack.size();
+    public void reset(){
+        undoStack.clear();
+        redoStack.clear();
     }
 
 }

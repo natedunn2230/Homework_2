@@ -4,12 +4,14 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import com.nathandunn.homework_2.commands.UpdateTimeCommand;
 import com.nathandunn.homework_2.views.AnalogClockView;
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 timeController.registerViews(newDigitalClock);
                 clockListLayout.addView(newDigitalClock);
                 clockListLayout.invalidate();
+
             }
         });
 
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 timeController.registerViews(newAnalogClock);
                 clockListLayout.addView(newAnalogClock);
                 clockListLayout.invalidate();
+
             }
         });
 
@@ -99,9 +103,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        clockListLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                clockListLayout.removeAllViews();
+                clockListLayout.invalidate();
+                commands.reset();
+                timeModel.reset();
+                return true;
+            }
+        });
     }
 
     private void init(){
+        Toast.makeText(mainActivityContext, "To reset the clock views, hold on top half of the screen.", Toast.LENGTH_LONG).show();
+
         // reference ListView in activity_main.xml. Adapter is the connection between ClockViews and clockListView
         clockListLayout = findViewById(R.id.clock_list_layout);
 
@@ -131,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         monthNumberPicker = findViewById(R.id.month_number_picker);
         yearNumberPicker = findViewById(R.id.year_number_picker);
 
-        String[] months = new String[]{"Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"};
+        String[] months = new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         //set min/max value of pickers
         hNumberPicker.setMinValue(1);
         hNumberPicker.setMaxValue(12);

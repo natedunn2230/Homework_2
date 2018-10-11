@@ -4,4 +4,5 @@
     <string name="add_analog_clock_button">Add Analog</string>
     <string name="edit_time_title">Edit Time</string>
     <string name="update_time_button">Update Time</string>
+    <string name="time_buffer">...</string>
 </resources>

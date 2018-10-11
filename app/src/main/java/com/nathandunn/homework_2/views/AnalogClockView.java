@@ -16,9 +16,10 @@ import java.util.Date;
 public class AnalogClockView extends ClockView {
 
     private CustomAnalogClock analogClock;
-    private TextView analogClockTextView;
-    private String stringTime;
+    private TextView analogClockDateTextView, analogClockSecondsTextView;
+    private String stringDateTime, stringSecondTime;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM YYYY");
+    private SimpleDateFormat secondFormat = new SimpleDateFormat("ss");
 
     public AnalogClockView(Context context, TimeController newTimeController){
         super(context, newTimeController);
@@ -28,8 +29,11 @@ public class AnalogClockView extends ClockView {
 
     @Override
     public void update(Date time){
-        stringTime = dateFormat.format(time);
-        analogClockTextView.setText(stringTime);
+        stringDateTime = dateFormat.format(time);
+        analogClockDateTextView.setText(stringDateTime);
+
+        stringSecondTime = secondFormat.format(time);
+        analogClockSecondsTextView.setText(stringSecondTime);
 
         Calendar calendar  = Calendar.getInstance();
         calendar.setTime(time);
@@ -39,8 +43,11 @@ public class AnalogClockView extends ClockView {
     private void init(){
         analogClock = findViewById(R.id.analog_clock);
 
-        analogClockTextView = findViewById(R.id.analog_clock_text_view);
-        analogClockTextView.setText("...");
+        analogClockDateTextView = findViewById(R.id.analog_clock_date_text_view);
+        analogClockSecondsTextView = findViewById(R.id.analog_clock_seconds_text_view);
+
+        analogClockDateTextView.setText("...");
+        analogClockSecondsTextView.setText("...");
     }
 
 }

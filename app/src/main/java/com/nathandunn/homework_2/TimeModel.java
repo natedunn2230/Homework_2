@@ -47,6 +47,10 @@ public class TimeModel {
         this.timeController.updateView();
     }
 
+    public void reset(){
+        this.date = Calendar.getInstance();
+    }
+
     public Date getTime(){
         return this.date.getTime();
     }
